@@ -8,5 +8,21 @@
             "name": "Wojciech Milewski",
             "email": "mail@wmilewski.com"
         }
-    ]
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "src/Framework/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Framework\\Tests\\": "tests/"
+        }
+    }
 }
