@@ -1,0 +1,12 @@
+{
+    "name": "wmilewski/mvc-framework",
+    "description": "A simple PHP MVC framework",
+    "keywords": ["framework", "mvc", "php"],
+    "homepage": "https://github.com/wmilewski/mvc-framework",
+    "authors": [
+        {
+            "name": "Wojciech Milewski",
+            "email": "mail@wmilewski.com"
+        }
+    ]
+}
