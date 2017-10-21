@@ -49,6 +49,15 @@ class Container
         return isset($this->bindings[$name]);
     }
 
+    public function callObjectMethod($object, string $name)
+    {
+        $reflector = new \ReflectionMethod(get_class($object), $name);
+
+        return $reflector->invokeArgs($object, $this->resolveParameters(
+            $reflector->getParameters()
+        ));
+    }
+
     protected function resolveInstance(string $class)
     {
         $reflector = new ReflectionClass($class);
