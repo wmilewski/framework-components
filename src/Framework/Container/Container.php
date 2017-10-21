@@ -8,6 +8,9 @@ use ReflectionParameter;
 
 class Container
 {
+    /**
+     * @var Binding[]
+     */
     protected $bindings = [];
 
     public function bind(string $name, Closure $closure, bool $shared = false)
@@ -24,8 +27,8 @@ class Container
 
     public function make(string $name, ...$parameters)
     {
-        if ($this->has($name)) {
-            return $this->get($name)->resolve(...$parameters);
+        if (isset($this->bindings[$name])) {
+            return $this->bindings[$name]->resolve(...$parameters);
         }
 
         return $this->resolveInstance($name);
@@ -44,11 +47,6 @@ class Container
     public function has(string $name): bool
     {
         return isset($this->bindings[$name]);
-    }
-
-    protected function get(string $name): Binding
-    {
-        return $this->bindings[$name];
     }
 
     protected function resolveInstance(string $class)
